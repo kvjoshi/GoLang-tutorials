@@ -2,19 +2,28 @@ package main
 
 import "fmt"
 
+type Engineer struct {
+	Name string
+	Age  int
+}
+
+func (e *Engineer) UpdateAge() {
+	e.Age += 1
+}
+func (e *Engineer) UpdateName() {
+	e.Name = "Karmavir Joshi"
+
+}
+
 func main() {
-	var name string
-	name = "Elliot"
-	fmt.Println(name)
-	ptr := &name
 
-	// The value of the pointer is the memory address of the variable.
-	fmt.Println(ptr)
-	// The value of the pointer is the value of the variable.
-	fmt.Println(*ptr)
-
-	// Change the value of the variable.
-	*ptr = "Forrest"
-	fmt.Println(name)
-
+	karmavir := &Engineer{
+		Name: "Karmavir",
+		Age:  27,
+	}
+	fmt.Println(karmavir)
+	karmavir.UpdateAge()
+	fmt.Println(karmavir)
+	karmavir.UpdateName()
+	fmt.Println(karmavir)
 }
